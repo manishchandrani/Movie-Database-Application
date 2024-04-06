@@ -8,4 +8,17 @@ router.get('/', async (req, res, next) => {
   res.render('movies',{ movies : allMovieData });
 });
 
+/* GET Create movie Page */
+router.get('/new', (req, res, next) => {
+  res.render('new',{title: 'Create a New Movie', buttonText: 'Create Movie', actionURL: 'new'});
+});
+
+/* POST movie Details from Create Movies Page */
+router.post('/new', (req, res, next) => {
+  const { title, director, year, notes } = req.body;
+  const movie = { title: title, director: director, year: year, notes: notes};
+  movieRepo.createNewMovie(movie);
+  res.redirect('/movies');
+});
+
 module.exports = router;
