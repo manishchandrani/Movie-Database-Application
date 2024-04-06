@@ -59,6 +59,15 @@ const movieRepo = {
   },
 
 
+  /* Delete a movie by id */
+  deleteMovie: async (id) => {
+    const moviesCollection = client.db('movie_database').collection('movies');
+    const filter = { _id: new ObjectId(id) };
+    const result = await moviesCollection.deleteOne(filter);
+    return result.deletedCount;
+  }
+
+
 }
 
 
