@@ -21,7 +21,7 @@ router.post('/new', (req, res, next) => {
   res.redirect('/movies');
 });
 
-/* GET Single Contact View Page */
+/* GET Single Movie View Page */
 router.get('/:id', async (req, res, next) => {
   const singleMovieData = await movieRepo.findById(req.params.id);
   console.log("id: "+ singleMovieData);
