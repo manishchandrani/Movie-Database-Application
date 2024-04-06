@@ -43,6 +43,22 @@ const movieRepo = {
     const result = await moviesCollection.insertOne(newMovie);
   },
 
+  /* Update an existing movie */
+  updateMovie: async (id, updatedMovieData) => {
+    const moviesCollection = client.db('movie_database').collection('movies');
+    const filter = { _id: new ObjectId(id) };
+    const updateDocument = {
+      $set: {
+        title: updatedMovieData.title,
+        director: updatedMovieData.director,
+        year: updatedMovieData.year,
+        notes: updatedMovieData.notes
+      }
+    };
+    await moviesCollection.updateOne(filter, updateDocument);
+  },
+
+
 }
 
 
