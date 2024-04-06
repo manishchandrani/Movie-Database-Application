@@ -26,7 +26,7 @@ router.get('/new', (req, res, next) => {
 router.post('/new', validateMovie, async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    res.render('new', { title: 'Create a New Movie', buttonText: 'Create Movie', actionURL: 'new', errors: errors.array() });
+    res.render('new', { title: 'Create a New Movie', buttonText: 'Create Movie', actionURL: 'new', msg: errors.array() });
     return;
   }
 
@@ -56,7 +56,7 @@ router.get('/:id/edit', async (req, res, next) => {
 router.post('/:id/edit', validateMovie, async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    res.render('edit', { movie: req.body, title: 'Edit Movie', buttonText: 'Edit movie', actionURL: 'edit', errors: errors.array() });
+    res.render('edit', { movie: req.body, title: 'Edit Movie', buttonText: 'Edit movie', actionURL: 'edit', msg: errors.array() });
     return;
   }
 
