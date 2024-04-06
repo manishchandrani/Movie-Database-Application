@@ -29,6 +29,20 @@ const movieRepo = {
 
   },
 
+  /* find a movie by id */
+  findById: async (id) => {
+    const moviesCollection = client.db('movie_database').collection('movies');
+    const filter = { _id: new ObjectId(id) };
+    const result = await moviesCollection.findOne(filter);
+    return new Movie(result._id.toString(), result.title, result.director, result.year, result.notes);
+  },
+  /* Creating a new movie into the database */
+  createNewMovie: async (movieData) => {
+    const newMovie = { title: movieData.title, director: movieData.director, year: movieData.year, notes: movieData.notes };
+    const moviesCollection = client.db('movie_database').collection('movies');
+    const result = await moviesCollection.insertOne(newMovie);
+  },
+
 }
 
 
