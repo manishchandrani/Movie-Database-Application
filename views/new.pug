@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  div.container-fluid.w-75
+    div.row.align-items-center.justify-content-center.vh-90
+      div.col-12.card
+        div.card-header.text-center.p-10
+          h2 #{title}
+        div.card-body.p-10.m-10
+          form(action= actionURL, method="POST")
+            div
+              label(for="title").form-label.h5 Title:
+              input(type="text", name="title", id="title", value = "").form-control
+            br
+            div
+              label(for="director").form-label.h5 Director:
+              input(type="text", name="director", id="director", value = "").form-control
+            br
+            div
+              label(for="year").form-label.h5 Year:
+              input(type="year", name="year", id="year", value = "").form-control
+            br
+            div
+              label(for="notes").form-label.h5 Notes:
+              textarea(name="notes", id="notes", value = "").form-control
+            br
+            div
+              button(type="submit").btn.btn-primary.pt-10.m-10 #{buttonText}
+              a(href ="").btn.btn-primary.pt-10.m-10 Go Back
