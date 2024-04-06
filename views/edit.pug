@@ -1,0 +1,30 @@
+extends layout
+
+block content 
+  div.container-fluid
+    div.row.align-items-center.justify-content-center.vh-100
+      div.col-6.text-center.card.m-10
+        h2.mb-10.m-10.pb-10 Edit Movie: #{movie.title}
+        form(action=`/movies/${movie.id}/edit`, method='POST')
+          div.container
+            table.mx-auto
+              tbody
+                tr
+                  td.h5.pr-10 Title :
+                  td.pl-10
+                    input.form-control(type='text', name='title', value=movie.title, required)
+                tr
+                  td.h5.pr-10 Director :
+                  td.pl-10
+                    input.form-control(type='text', name='director', value=movie.director, required)
+                tr  
+                  td.h5.pr-10 Release Year :
+                  td.pl-10
+                    input.form-control(type='number', name='year', value=movie.year, required)
+                tr 
+                  td.h5.pr-10 Notes :
+                  td.pl-10
+                    textarea.form-control(name='notes', rows='3')= movie.notes
+          div.m-10
+            button.btn.btn-primary(type='submit') Save Changes
+            a(href='/movies').btn.btn-secondary.mx-2 Cancel
