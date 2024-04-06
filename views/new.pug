@@ -7,6 +7,10 @@ block content
         div.card-header.text-center.p-10
           h2 #{title}
         div.card-body.p-10.m-10
+          if msg
+            ul.text-danger
+              each val in msg
+                li.red= val.msg
           form(action= actionURL, method="POST")
             div
               label(for="title").form-label.h5 Title:

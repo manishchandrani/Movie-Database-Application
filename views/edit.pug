@@ -5,6 +5,10 @@ block content
     div.row.align-items-center.justify-content-center.vh-100
       div.col-6.text-center.card.m-10
         h2.mb-10.m-10.pb-10 Edit Movie: #{movie.title}
+        if msg
+          ul.text-danger
+            each val in msg
+              li.red= val.msg
         form(action=`/movies/${movie.id}/edit`, method='POST')
           div.container
             table.mx-auto
