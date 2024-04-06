@@ -47,5 +47,22 @@ router.post('/:id/edit', async (req, res, next) => {
   res.redirect('/movies/' + movieId);
 });
 
+/* GET Movie Confirm Delete Page */
+router.get('/:id/delete', async (req, res, next) => {
+  const data = await movieRepo.findById(req.params.id);
+  res.render('delete', { movie: data });
+});
+
+/* POST Movie Delete */
+router.post('/:id/delete', async (req, res, next) => {
+  const movieId = req.params.id;
+  const deletedCount = await movieRepo.deleteMovie(movieId);
+  if (deletedCount > 0) {
+    res.redirect('/movies');
+  } else {
+    res.status(404).send('Movie not found');
+  }
+});
+
 
 module.exports = router;
