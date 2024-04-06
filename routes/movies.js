@@ -13,7 +13,7 @@ router.get('/', async (req, res, next) => {
 const validateMovie = [
   body('title').trim().notEmpty().withMessage('Title required').escape(),
   body('director').trim().notEmpty().withMessage('Director required').escape(),
-  body('year').optional().trim().escape(),
+  body('year').trim().isNumeric().escape(),
   body('notes').optional().trim().escape(),
 ];
 
