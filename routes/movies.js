@@ -32,4 +32,20 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+/* GET Edit movie Page */
+router.get('/:id/edit', async (req, res, next) => {
+  const movieData = await movieRepo.findById(req.params.id);
+  res.render('edit', { movie: movieData, title: 'Edit Movie', buttonText: 'Edit movie', actionURL: 'edit' });
+});
+
+/* POST Updated movie Details from Edit Movies Page */
+router.post('/:id/edit', async (req, res, next) => {
+  const { title, director, year, notes } = req.body;
+  const movieId = req.params.id;
+  const updatedMovie = { title, director, year, notes };
+  await movieRepo.updateMovie(movieId, updatedMovie);
+  res.redirect('/movies/' + movieId);
+});
+
+
 module.exports = router;
