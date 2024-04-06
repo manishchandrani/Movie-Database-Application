@@ -1,0 +1,13 @@
+extends layout
+
+block content 
+    div.container-fluid
+        div.row.align-items-center.justify-content-center.vh-100
+            div.col-6.text-center.card.m-10
+                h2.mb-10.m-10.pb-10 Confirm Deletion
+                div.container
+                    p.h5 Are you sure you want to delete the Movie Details of #{movie.title}?
+                div.m-10
+                    form(method='POST' action=`/movies/${movie.id}/delete`)
+                        button(type='submit' class='btn btn-danger m-10') Confirm Delete
+                    a(href='/movies').btn.btn-primary.m-10 Cancel
