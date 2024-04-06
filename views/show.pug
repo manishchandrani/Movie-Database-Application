@@ -1,0 +1,25 @@
+extends layout 
+
+block content 
+    div.container-fluid
+        div.row.align-items-center.justify-content-center.vh-100
+            div.col-6.text-center.card.m-10
+                h2.mb-10.m-10.pb-10 Movie Details of #{movie.title}
+                div.container
+                    table.mx-auto
+                        tbody
+                            tr
+                                td.h5.pr-10 Title :
+                                td.pl-10 #{movie.title}
+                            tr
+                                td.h5.pr-10 Director :
+                                td.pl-10 #{movie.director}
+                            tr  
+                                td.h5.pr-10 Release Year :
+                                td.pl-10 #{movie.year}
+                            if movie.notes 
+                                tr 
+                                    td.h5.pr-10 Notes :
+                                    td.pl-10 #{movie.notes}
+                div.m-10
+                    a(href="/movies").btn.btn-primary.m-10 Go Back
