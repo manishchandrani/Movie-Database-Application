@@ -21,4 +21,15 @@ router.post('/new', (req, res, next) => {
   res.redirect('/movies');
 });
 
+/* GET Single Contact View Page */
+router.get('/:id', async (req, res, next) => {
+  const singleMovieData = await movieRepo.findById(req.params.id);
+  console.log("id: "+ singleMovieData);
+  if(singleMovieData){
+  res.render('show', { movie: singleMovieData});
+  } else {
+    res.redirect('/movies');
+  }
+});
+
 module.exports = router;
