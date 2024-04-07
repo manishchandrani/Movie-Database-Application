@@ -4,7 +4,7 @@
 
 Email: mchandrani@hawk.iit.edu
 
-Github repo link : #########
+Github repo link : https://github.com/manishchandrani/ITMD542_Lab4
 
 ## Project Description:
 
@@ -18,7 +18,7 @@ Computer OS: Windows 11 Node.js Version: v20.11.1 Editor: Visual Studio Code
 
 Clone the Repository:
 
-For cloning repo: git clone ###########
+For cloning repo: git clone https://github.com/manishchandrani/ITMD542_Lab4
 
 Navigate to the Project Directory: cd movie-records
 
