@@ -9,16 +9,16 @@ block content
             h2 #{title}
           .card-body.py-4.px-5
             if msg
-              ul.list-unstyled.text-danger
+              ul.text-danger
                 each val in msg
                   li.red= val.msg
             form(action= actionURL, method="POST")
               .mb-3
                 label(for="title").form-label Title:
-                input(type="text", name="title", id="title", class="form-control", placeholder="Enter movie title", required)
+                input(type="text", name="title", id="title", class="form-control", placeholder="Enter movie title")
               .mb-3
                 label(for="director").form-label Director:
-                input(type="text", name="director", id="director", class="form-control", placeholder="Enter director's name", required)
+                input(type="text", name="director", id="director", class="form-control", placeholder="Enter director's name")
               .mb-3
                 label(for="year").form-label Year:
                 input(type="number", name="year", id="year", class="form-control", placeholder="Enter release year")
