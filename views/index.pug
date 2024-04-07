@@ -1,8 +1,13 @@
 extends layout
 
 block content
-  h1 Welcome to the Movie Database App
-  p This application is for managing a collection of movies. You can view, add, edit, and delete movies.
-  p  Name: Manish Chandrani Email: mchandrani@hawk.iit.edu
-
-  a(href='/movies') View Movies Database
+  .container.mt-5
+    .row.justify-content-center
+      .col-md-8.text-center
+        h1.welcome-heading.mb-4 Welcome to the Movie Database App
+        p This application is for managing a collection of movies. You can view, add, edit, and delete movies.
+        p.mb-4
+          | Name: Manish Chandrani 
+          br
+          | Email: mchandrani@hawk.iit.edu
+        a.btn.btn-primary(href='/movies') View Movies Database
