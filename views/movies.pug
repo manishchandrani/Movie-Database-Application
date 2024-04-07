@@ -1,16 +1,16 @@
 extends layout 
 
 block content 
-    div.d-flex.justify-content-between.pb-10
-        div
-            h1 All Available Movies
-        div
-            a(href='/movies/new').btn.btn-primary Create a New Movie
-    if movies.length == 0
-        h5.text-center.m-10.p-10 No available movies
-    br
+    .d-flex.justify-content-between.align-items-center.pb-4
+        h1 All Available Movies
+        a(href='/movies/new').btn.btn-primary Create a New Movie
+
+    if movies.length === 0
+        .text-center.mt-5
+            h5 No available movies
+
     if movies.length > 0
-        table.table.table-striped.pt-10
+        table.table.table-striped.mt-4
             thead
                 tr
                     th Title
@@ -23,5 +23,5 @@ block content
                         td #{movie.title}
                         td #{movie.director}
                         td #{movie.year}
-                        td 
+                        td
                             a(href=`/movies/${movie.id}`).btn.btn-primary.btn-sm View
