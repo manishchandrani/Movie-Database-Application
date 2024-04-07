@@ -1,25 +1,30 @@
-extends layout 
+extends layout
 
-block content 
-    div.container-fluid
-        div.row.align-items-center.justify-content-center.vh-100
-            div.col-6.text-center.card.m-10
-                h2.mb-10.m-10.pb-10 Movie Details of #{movie.title}
-                div.container
-                    table.mx-auto
-                        tbody
-                            tr
-                                td.h5.pr-10 Title :
-                                td.pl-10 #{movie.title}
-                            tr
-                                td.h5.pr-10 Director :
-                                td.pl-10 #{movie.director}
-                            tr  
-                                td.h5.pr-10 Release Year :
-                                td.pl-10 #{movie.year}
-                            if movie.notes 
-                                tr 
-                                    td.h5.pr-10 Notes :
-                                    td.pl-10 #{movie.notes}
-                div.m-10
-                    a(href="/movies").btn.btn-primary.m-10 Go Back
+block content
+  .container-fluid
+    .row.justify-content-center.align-items-center.vh-100
+      .col-md-8
+        .card.shadow-sm
+          .card-body.py-5
+            h2.text-center.mb-4 Movie Details of #{movie.title}
+            .container
+              table.table.table-bordered.mx-auto
+                tbody
+                  tr
+                    td.h5.pr-3 Title:
+                    td.pl-3 #{movie.title}
+                  tr
+                    td.h5.pr-3 Director:
+                    td.pl-3 #{movie.director}
+                  tr  
+                    td.h5.pr-3 Release Year:
+                    td.pl-3 #{movie.year}
+                  if movie.notes 
+                    tr 
+                      td.h5.pr-3 Notes:
+                      td.pl-3 #{movie.notes}
+            .mt-5
+              .d-grid.gap-2
+                a(href=`/movies/${movie.id}/edit`, class='btn btn-outline-primary') Edit Movie
+                a(href=`/movies/${movie.id}/delete`, class='btn btn-outline-danger') Delete Movie
+                a(href="/movies", class='btn btn-primary') Go Back

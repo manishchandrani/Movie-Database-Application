@@ -1,33 +1,30 @@
 extends layout
 
 block content
-  div.container-fluid.w-75
-    div.row.align-items-center.justify-content-center.vh-90
-      div.col-12.card
-        div.card-header.text-center.p-10
-          h2 #{title}
-        div.card-body.p-10.m-10
-          if msg
-            ul.text-danger
-              each val in msg
-                li.red= val.msg
-          form(action= actionURL, method="POST")
-            div
-              label(for="title").form-label.h5 Title:
-              input(type="text", name="title", id="title", value = "").form-control
-            br
-            div
-              label(for="director").form-label.h5 Director:
-              input(type="text", name="director", id="director", value = "").form-control
-            br
-            div
-              label(for="year").form-label.h5 Year:
-              input(type="year", name="year", id="year", value = "").form-control
-            br
-            div
-              label(for="notes").form-label.h5 Notes:
-              textarea(name="notes", id="notes", value = "").form-control
-            br
-            div
-              button(type="submit").btn.btn-primary.pt-10.m-10 #{buttonText}
-              a(href ="").btn.btn-primary.pt-10.m-10 Go Back
+  .container-fluid.w-75
+    .row.justify-content-center.align-items-center.my-5
+      .col-md-8
+        .card
+          .card-header.text-center.py-4
+            h2 #{title}
+          .card-body.py-4.px-5
+            if msg
+              ul.list-unstyled.text-danger
+                each val in msg
+                  li.red= val.msg
+            form(action= actionURL, method="POST")
+              .mb-3
+                label(for="title").form-label Title:
+                input(type="text", name="title", id="title", class="form-control", placeholder="Enter movie title", required)
+              .mb-3
+                label(for="director").form-label Director:
+                input(type="text", name="director", id="director", class="form-control", placeholder="Enter director's name", required)
+              .mb-3
+                label(for="year").form-label Year:
+                input(type="number", name="year", id="year", class="form-control", placeholder="Enter release year")
+              .mb-3
+                label(for="notes").form-label Notes:
+                textarea(name="notes", id="notes", class="form-control", placeholder="Enter notes about the movie", rows="3")
+              .d-grid.gap-2
+                button(type="submit").btn.btn-primary Save Changes
+                a(href="/movies").btn.btn-secondary Go Back
