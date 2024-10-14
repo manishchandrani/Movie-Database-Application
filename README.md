@@ -1,10 +1,9 @@
-﻿# ITMD542_Lab4
+Movie Database Application
 
  Manish Chandrani
 
 Email: mchandrani@hawk.iit.edu
 
-Github repo link : https://github.com/manishchandrani/ITMD542_Lab4
 
 ## Project Description:
 
